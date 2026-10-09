@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simón Bolívar - El Libertador</title>
+    <style>
+        /* Estilos Minimalistas y Móviles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+
+        /* Enmarca la pintura completa de Tito Salas sin recortar la cabeza */
+        .image-container {
+            width: 100%;
+            height: 380px; 
+            overflow: hidden;
+            background-color: #ffffff;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .header-block {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 4px;
+        }
+
+        .title-sub {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+
+        .highlight-name {
+            font-weight: 600;
+            color: #d4af37; /* Dorado Histórico */
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Texto perfectamente justificado */
+        .info-item p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        /* Caja de curiosidad con tonalidades azuladas suaves */
+        .curiosity {
+            background-color: #f0f4f8;
+            border-left: 4px solid #1b3a4b;
+            padding: 14px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 10px;
+        }
+        
+        .curiosity h3 {
+            color: #1b3a4b;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .curiosity p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #2c3e50;
+            text-align: justify;
+        }
+		
+		#netlify-badge, .netlify-badge, [class*="netlify"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+    </style>
+</head>
+<body>
+
+    <!-- ELEMENTO DE AUDIO OCULTO -->
+    <!-- Recuerda guardar tu canción como "himno.mp3" en la misma carpeta -->
+    <audio id="bg-audio" src="himno.mp3" loop></audio>
+
+    <div class="card">
+        <!-- Contenedor de Imagen de Portada -->
+        <div class="image-container">
+            <!-- Imagen local de Simón Bolívar -->
+            <img src="71b5524fc14e07b590389ed2109641ab.jpg" alt="Simón Bolívar, El Libertador">
+        </div>
+
+        <!-- Contenido de la Ficha -->
+        <div class="content">
+            <div class="header-block">
+                <h1>Simón Bolívar</h1>
+                <p class="title-sub">Título Histórico: <span class="highlight-name">El Libertador</span></p>
+            </div>
+
+            <!-- Secciones Informativas Detalladas -->
+            <div class="info-section">
+                
+                <div class="info-item">
+                    <h3>🗡️ El Libertador de Naciones</h3>
+                    <p>Nacido en Caracas en 1783, Simón Bolívar es una de las figuras políticas y militares más brillantes de la historia universal. Fue el líder fundamental de las gestas independentistas que rompieron las cadenas del imperio español, logrando la liberación de <strong>Venezuela, Colombia, Ecuador, Panamá, Perú y la fundación de Bolivia</strong>.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🤝 El Sueño de la Gran Colombia</h3>
+                    <p>El mayor proyecto político de Bolívar fue la creación de <strong>La Gran Colombia</strong> (1819-1831). Esta mega nación caribeña y andina estuvo conformada por los territorios actuales de <strong>Venezuela, Colombia, Ecuador y Panamá</strong>. El Libertador concibió este estado gigante con el objetivo de consolidar una potencia económica y militar americana lo suficientemente fuerte como para defender su independencia frente a cualquier otra potencia extranjera.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🧭 Conexión con el Cono Sur: San Martín y O'Higgins</h3>
+                    <p>La visión de Bolívar no se limitó al norte. Su pensamiento continental influyeron profundamente en los próceres del sur. Mantuvo correspondencia estratégica y de mutua admiración con el chileno <strong>Bernardo O'Higgins</strong>. El punto culminante de la cooperación del sur y el norte ocurrió en la histórica <strong>Entrevista de Guayaquil (1822)</strong>, donde Bolívar se reunió cara a cara con el general argentino <strong>José de San Martín</strong> para coordinar de forma definitiva la derrota militar absoluta de las fuerzas realistas en Sudamérica.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🏛️ Un Pensamiento Republicano Mundial</h3>
+                    <p>Más allá de las batallas, Bolívar destacó por su genio escrito e ideológico. Documentos como el Manifiesto de Cartagena y la Carta de Jamaica delinearon los conceptos de libertad, unión latinoamericana y democracia republicana. Su impacto es tal que hoy en día existen plazas, monumentos y estatuas en su honor en capitales de todo el mundo, desde París y Londres hasta Washington y Santiago de Chile.</p>
+                </div>
+
+                <div class="curiosity">
+                    <h3>💡 Una curiosidad asombrosa</h3>
+                    <p>Simón Bolívar es la única persona en la historia del continente americano que ha dado nombre a toda una nación soberana (<strong>Bolivia</strong>), además de renombrar constitucionalmente a su tierra natal como República Bolivariana de Venezuela. Recorrió a caballo más de 70.000 kilómetros durante sus campaigns, una distancia que equivale a dar dos vueltas completas al planeta Tierra.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica JavaScript Optimizada para Computadoras y Teléfonos Táctiles -->
+    <script>
+        function iniciarMusicaDeFondo() {
+            const audio = document.getElementById('bg-audio');
+            if (audio.paused) {
+                audio.play().then(() => {
+                    // Remueve los detectores para optimizar recursos una vez que el audio suena
+                    window.removeEventListener('click', iniciarMusicaDeFondo);
+                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
+                }).catch(error => {
+                    console.log("El navegador bloqueó el audio momentáneamente:", error);
+                });
+            }
+        }
+
+        // Detecta el clic clásico en PC y el toque inicial/desplazamiento en pantallas táctiles
+        window.addEventListener('click', iniciarMusicaDeFondo);
+        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
+    </script>
+
+</body>
+</html>

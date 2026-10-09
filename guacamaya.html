@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Guacamaya - Icono de los Cielos de Venezuela</title>
+    <style>
+        /* Estilos Minimalistas y Móviles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f9fa;
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background-color: #e9ecef;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Etiqueta informativa adaptada al color rojo escarlata */
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #d32f2f; /* Rojo Escarlata Guacamaya */
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .header-block {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 4px;
+        }
+
+        .scientific-title {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            font-weight: 600;
+            color: #2980b9; /* Azul de las plumas */
+        }
+
+        .audio-wrapper {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Botón de Audio Interactivo (Amarillo Tricolor) */
+        .audio-btn {
+            background: #f1c40f; 
+            color: #111111;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.96);
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Mantiene el texto perfectamente justificado */
+        .info-item p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        /* Caja de curiosidad con tonalidades amarillas muy suaves */
+        .curiosity {
+            background-color: #fffde7;
+            border-left: 4px solid #f1c40f;
+            padding: 14px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 10px;
+        }
+        
+        .curiosity h3 {
+            color: #827717;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .curiosity p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #33691e;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Contenedor de Imagen -->
+        <div class="image-container">
+            <!-- Imagen representativa de la Guacamaya -->
+            <img src="42321ea4-6a10-4d5b-ae6d-012f9f912e7b.jpg" alt="Guacamaya en Venezuela">
+        </div>
+
+        <!-- Contenido de la Ficha -->
+        <div class="content">
+            <div class="header-block">
+                <h1>La Guacamaya</h1>
+                <p class="scientific-title">Nombre científico: <span class="scientific-name">Ara macao / Ara ararauna</span></p>
+            </div>
+
+            <!-- Elemento de audio oculto (Enlace estable de Wikimedia) -->
+            <audio id="guacamaya-audio" src="canto-guacamaya.mp3"></audio>
+
+            <!-- Botón Reproductor -->
+            <div class="audio-wrapper">
+                <button class="audio-btn" onclick="toggleAudio()">
+                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Canto de la Guacamaya</span>
+                </button>
+            </div>
+
+            <!-- Secciones Informativas Detalladas -->
+            <div class="info-section">
+                
+                <div class="info-item">
+                    <h3>🦜 Un Símbolo de Identidad Tricolor</h3>
+                    <p>Aunque Venezuela cuenta con varias especies de psitácidos, la <strong>Guacamaya Bandera (Ara macao)</strong> destaca de manera especial. Su majestuoso plumaje combina el rojo escarlata, el amarillo y el azul rey. Estos colores brillantes e intensos emulan de forma exacta y natural los colores del pabellón nacional de Venezuela.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>📍 Hábitat y el Fenómeno Único de Caracas</h3>
+                    <p>En su estado silvestre, habitan en selvas húmedas, áreas boscosas y en la vasta región de <strong>Los Llanos venezolanos, el Estado Bolívar y el Delta Amacuro</strong>. Sin embargo, Venezuela es mundialmente famosa por un espectáculo urbano único: en su ciudad capital, <strong>Caracas</strong>, cientos de guacamayas (principalmente la azul y amarilla) vuelan libres entre los rascacielos, bajan a los balcones de los apartamentos a pedir frutas y conviven en total armonía con los ciudadanos.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🧠 Inteligencia y Alimentación</h3>
+                    <p>Son aves sumamente inteligentes, capaces de imitar sonidos y memorizar patrones. Tienen una dieta herbívora muy fuerte; gracias a su gran pico curvo y robusto, pueden fracturar con facilidad semillas extremadamente duras, nueces, frutos de palmeras (como el chahuaramo) y cortezas de árboles tropicales.</p>
+                </div>
+
+                <div class="curiosity">
+                    <h3>💡 Una curiosidad asombrosa</h3>
+                    <p>Las guacamayas son animales estrictamente <strong>monógamos</strong>. Esto significa que eligen una pareja para toda la vida y hacen absolutamente todo juntas: viajan, se alimentan y anidan en equipo. Si logras ver una guacamaya surcando el cielo venezolano, mira con atención a su alrededor, porque casi siempre verás a su compañera volando exactamente al lado. ¡Pueden vivir hasta 70 años juntas!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica Interactiva del Botón -->
+    <script>
+        const audio = document.getElementById('guacamaya-audio');
+        const btnIcon = document.getElementById('btn-icon');
+        const btnText = document.getElementById('btn-text');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                btnIcon.innerText = '⏸';
+                btnText.innerText = 'Pausar Sonido';
+            } else {
+                audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar Canto de la Guacamaya';
+            }
+        }
+
+        audio.onended = function() {
+            btnIcon.innerText = '▶';
+            btnText.innerText = 'Escuchar Canto de la Guacamaya';
+        };
+    </script>
+
+</body>
+</html>

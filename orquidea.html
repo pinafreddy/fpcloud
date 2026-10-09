@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Orquídea - Flor Nacional de Venezuela</title>
+    <style>
+        /* Estilos Minimalistas y Móviles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f4f8;
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background-color: #e9ecef;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Etiqueta informativa adaptada al color de la flor */
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #8e44ad; /* Púrpura Orquídea */
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3);
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .header-block {
+            text-align: center;
+            margin-bottom: 25px; /* Un poco más de espacio al no haber botón */
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 4px;
+        }
+
+        .scientific-title {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            font-weight: 600;
+            color: #9b59b6;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Mantiene el texto perfectamente justificado */
+        .info-item p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        /* Caja de curiosidad con tonalidades violetas suaves */
+        .curiosity {
+            background-color: #f5eef8;
+            border-left: 4px solid #8e44ad;
+            padding: 14px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 10px;
+        }
+        
+        .curiosity h3 {
+            color: #6c3483;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .curiosity p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4a235a;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Contenedor de Imagen -->
+        <div class="image-container">
+       
+            <!-- Imagen representativa de la Orquídea (Cattleya mossiae) -->
+            <img src="orquidea.jpg" alt="Orquídea de Venezuela">
+        </div>
+
+        <!-- Contenido de la Ficha -->
+        <div class="content">
+            <div class="header-block">
+                <h1>La Orquídea</h1>
+                <p class="scientific-title">Nombre científico: <span class="scientific-name">Cattleya mossiae</span></p>
+            </div>
+
+            <!-- Secciones Informativas Detalladas -->
+            <div class="info-section">
+                
+                <div class="info-item">
+                    <h3>Flor Nacional de Venezuela</h3>
+                    <p>La Orquídea fue nombrada oficialmente como la <strong>Flor Nacional de Venezuela el 23 de mayo de 1951</strong> mediante un decreto oficial. La búsqueda de una flor representativa fue coordinada por los ministerios de Educación y Agricultura, eligiéndola por ser una especie autóctona sumamente hermosa que personifica la majestuosidad de la flora tropical del país.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Identidad y Aspecto</h3>
+                    <p>En Venezuela se le conoce popularmente como la <strong>"Flor de Mayo"</strong>, ya que es la época del año en la que florece con mayor abundancia para adornar las festividades tradicionales católicas de la Cruz de Mayo. Su color característico es un hermoso tono <strong>púrpura, lila y violeta</strong>, y posee una estructura elegante con pétalos ondulados que cautivan a botánicos de todo el mundo.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>📍 ¿Dónde habita en Venezuela?</h3>
+                    <p>A diferencia del turpial, a la orquídea le encantan los climas frescos y húmedos. Crece de manera silvestre en la <strong>Cordillera de la Costa</strong> y en la **Cordillera de los Andes**, estando muy presente en los bosques nublados de estados como **Miranda, Aragua, Carabobo, Yaracuy, Lara, Mérida y Táchira**, usualmente sujeta a las ramas de grandes árboles sin hacerles daño.</p>
+                </div>
+
+                <div class="curiosity">
+                    <h3>💡 Una curiosidad asombrosa</h3>
+                    <p>La variedad venezolana <em>Cattleya mossiae</em> es una planta <strong>epífita</strong>. Esto significa que vive y crece apoyada sobre los troncos de los árboles únicamente para alcanzar una mejor posición frente a la luz del sol. No es una planta parásita, ya que no absorbe los nutrientes ni la savia del árbol que la hospeda; obtiene su agua directamente de la humedad del aire.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
