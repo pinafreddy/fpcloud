@@ -33,21 +33,24 @@
             padding-bottom: 30px;
         }
 
-        /* CORREGIDO: Mismo tamaño de Bolívar, pero con el fondo marrón de la pintura */
+        /* CORREGIDO: Caja con degradado suave que rodea la pintura sin oscurecer el rostro */
         .image-container {
             width: 100%;
             height: 380px; 
             overflow: hidden;
-            background-color: #491b15; /* Marrón oscuro exacto del óleo de Bello */
+            background: #3a1c17; /* Color base cálido */
+            background: linear-gradient(to bottom, #24110e 0%, #3a1c17 25%, #3a1c17 75%, #24110e 100%);
             position: relative;
-            padding: 10px 0; /* Un pequeño margen para enmarcar el cuadro */
+            padding: 15px 0;
         }
 
-        /* Mantiene contain para que se aprecie la obra completa sin mutilar su rostro */
+        /* CORREGIDO: Eliminado el efecto multiply para devolverle los colores reales y la luz original */
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
+            margin: 0 auto;
         }
 
         .content {
@@ -144,7 +147,7 @@
 <body>
 
     <div class="card">
-        <!-- Contenedor de Imagen de Portada con fondo integrado -->
+        <!-- Contenedor de Imagen de Portada con degradado mejorado -->
         <div class="image-container">
             <img src="andresbello.png" alt="Andrés Bello">
         </div>
@@ -176,7 +179,7 @@
 
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
-                    <p>El rostro de Andrés Bello es parte del día a día de todos los chilenos, ya que su retrato ilustra de manera solemne el <strong>billete de 20.000 pesos (popularmente conocido como el billete de "20 lucas")</strong>, que es el de mayor denominación económica en el país. Además, se le rinde tributo con calles, avenidas y una universidad privada que lleva some name, consolidándolo como el venezolano más influyente en la historia republicana de Chile.</p>
+                    <p>El rostro de Andrés Bello es parte del día a día de todos los chilenos, ya que su retrato ilustra de manera solemne el <strong>billete de 20.000 pesos (popularmente conocido como el billete de "20 lucas")</strong>, que es el de mayor denominación económica en el país. Además, se le rinde tributo con calles, avenidas y una universidad privada que lleva su nombre, consolidándolo como el venezolano más influyente en la historia republicana de Chile.</p>
                     
                     <!-- Imagen del billete integrada debajo del texto de la curiosidad -->
                     <div class="bill-container">
