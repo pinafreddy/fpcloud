@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrés Bello - Humanista de América</title>
     <style>
-        /* Estilos Minimalistas y Móviles */
+        /* Estilos Minimalistas y Móviles (ESTÁNDAR DEL PROYECTO) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #f4f6f9;
+            background-color: #f4f6f9; /* Fondo gris claro unificado */
             color: #2c3e50;
             display: flex;
             justify-content: center;
@@ -24,7 +24,7 @@
         }
 
         .card {
-            background: #ffffff;
+            background: #ffffff; /* Tarjeta blanca unificada */
             border-radius: 28px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             max-width: 420px;
@@ -33,16 +33,17 @@
             padding-bottom: 30px;
         }
 
-        /* Enmarca el retrato completo de Andrés Bello sin recortar su rostro */
+        /* CORREGIDO: Mismo tamaño de Bolívar, pero con el fondo marrón de la pintura */
         .image-container {
             width: 100%;
             height: 380px; 
             overflow: hidden;
-            background-color: #ffffff;
+            background-color: #491b15; /* Marrón oscuro exacto del óleo de Bello */
             position: relative;
-            padding-top: 10px;
+            padding: 10px 0; /* Un pequeño margen para enmarcar el cuadro */
         }
 
+        /* Mantiene contain para que se aprecie la obra completa sin mutilar su rostro */
         .image-container img {
             width: 100%;
             height: 100%;
@@ -73,7 +74,7 @@
 
         .highlight-name {
             font-weight: 600;
-            color: #c0392b; /* Acento elegante */
+            color: #c0392b; /* Acento académico elegante */
         }
 
         .info-section {
@@ -95,7 +96,6 @@
             gap: 8px;
         }
 
-        /* Texto perfectamente justificado */
         .info-item p {
             font-size: 0.98rem;
             line-height: 1.6;
@@ -103,7 +103,6 @@
             text-align: justify;
         }
 
-        /* Caja de curiosidad con tonalidades azuladas institucionales suaves */
         .curiosity {
             background-color: #ebf5fb;
             border-left: 4px solid #2980b9;
@@ -125,7 +124,7 @@
             text-align: justify;
         }
 
-        /* NUEVO: Contenedor estético para el billete de 20 lucas */
+        /* Contenedor estético adaptado para el billete de 20 lucas */
         .bill-container {
             width: 100%;
             margin-top: 15px;
@@ -145,7 +144,7 @@
 <body>
 
     <div class="card">
-        <!-- Contenedor de Imagen de Portada -->
+        <!-- Contenedor de Imagen de Portada con fondo integrado -->
         <div class="image-container">
             <img src="andresbello.png" alt="Andrés Bello">
         </div>
@@ -177,12 +176,11 @@
 
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
-                    <p>El rostro de Andrés Bello es parte del día a día de todos los chilenos, ya que su retrato ilustra de manera solemne el <strong>billete de 20.000 pesos (popularmente conocido como el billete de "20 lucas")</strong>, que es el de mayor denominación económica en el país. Además, se le rinde tributo con calles, avenidas y una universidad privada que lleva su nombre, consolidándolo como el venezolano más influyente en la historia republicana de Chile.</p>
+                    <p>El rostro de Andrés Bello es parte del día a día de todos los chilenos, ya que su retrato ilustra de manera solemne el <strong>billete de 20.000 pesos (popularmente conocido como el billete de "20 lucas")</strong>, que es el de mayor denominación económica en el país. Además, se le rinde tributo con calles, avenidas y una universidad privada que lleva some name, consolidándolo como el venezolano más influyente en la historia republicana de Chile.</p>
                     
-                    <!-- NUEVO: Imagen del billete integrada debajo del texto de la curiosidad -->
+                    <!-- Imagen del billete integrada debajo del texto de la curiosidad -->
                     <div class="bill-container">
-                        <!-- Recuerda guardar la foto del billete como "billete20.png" (o .jpg) en tu carpeta de GitHub -->
-                        <img src="billete.jpg" alt="Billete de 20.000 pesos chilenos con el rostro de Andrés Bello">
+                        <img src="billete20.png" alt="Billete de 20.000 pesos chilenos con el rostro de Andrés Bello">
                     </div>
                 </div>
             </div>
