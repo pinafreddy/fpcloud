@@ -179,7 +179,7 @@
         function iniciarMusicaDeFondo() {
             const audio = document.getElementById('bg-audio');
             if (audio.paused) {
-			    audio.currentTime = 1.5; 
+			    audio.currentTime = 1.25; 
                 audio.play().then(() => {
                     // Remueve los detectores para optimizar recursos una vez que el audio suena con éxito
                     window.removeEventListener('click', iniciarMusicaDeFondo);
