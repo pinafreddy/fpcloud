@@ -33,24 +33,21 @@
             padding-bottom: 30px;
         }
 
-        /* CORREGIDO: Con degradado suave que imita las luces y sombras del óleo */
+        /* CORREGIDO: Mismo tamaño de Bolívar, pero con el fondo marrón de la pintura */
         .image-container {
             width: 100%;
             height: 380px; 
             overflow: hidden;
-            background: linear-gradient(to bottom, #2b110d 0%, #4c1c16 40%, #4c1c16 60%, #2b110d 100%);
+            background-color: #491b15; /* Marrón oscuro exacto del óleo de Bello */
             position: relative;
-            padding: 15px 0;
+            padding: 10px 0; /* Un pequeño margen para enmarcar el cuadro */
         }
 
-        /* Mantiene el formato completo sin deformar */
+        /* Mantiene contain para que se aprecie la obra completa sin mutilar su rostro */
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* Añade una ligera mezcla para suavizar los bordes rectos de la foto */
-            mix-blend-mode: multiply; 
-            opacity: 0.95;
         }
 
         .content {
@@ -183,7 +180,7 @@
                     
                     <!-- Imagen del billete integrada debajo del texto de la curiosidad -->
                     <div class="bill-container">
-                        <img src="billete20.png" alt="Billete de 20.000 pesos chilenos con el rostro de Andrés Bello">
+                        <img src="billete.jpg" alt="Billete de 20.000 pesos chilenos con el rostro de Andrés Bello">
                     </div>
                 </div>
             </div>
