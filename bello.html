@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #f4f6f9; /* Fondo gris claro unificado */
+            background-color: #f4f6f9; /* Fondo gris unificado */
             color: #2c3e50;
             display: flex;
             justify-content: center;
@@ -33,18 +33,16 @@
             padding-bottom: 30px;
         }
 
-        /* CORREGIDO: Caja con degradado suave que rodea la pintura sin oscurecer el rostro */
+        /* CORREGIDO: Medidas adaptadas a la proporción de la imagen y fondo negro sólido */
         .image-container {
             width: 100%;
-            height: 380px; 
+            height: 240px; 
             overflow: hidden;
-            background: #3a1c17; /* Color base cálido */
-            background: linear-gradient(to bottom, #24110e 0%, #3a1c17 25%, #3a1c17 75%, #24110e 100%);
+            background-color: #000000; /* Fondo negro neutro que combina con los bordes del lienzo */
             position: relative;
-            padding: 15px 0;
         }
 
-        /* CORREGIDO: Eliminado el efecto multiply para devolverle los colores reales y la luz original */
+        /* Mantiene contain para mostrar la pintura completa sin recortes ni alteraciones */
         .image-container img {
             width: 100%;
             height: 100%;
@@ -77,7 +75,7 @@
 
         .highlight-name {
             font-weight: 600;
-            color: #c0392b; /* Acento académico elegante */
+            color: #c0392b; /* Acento académico */
         }
 
         .info-section {
@@ -147,7 +145,7 @@
 <body>
 
     <div class="card">
-        <!-- Contenedor de Imagen de Portada con degradado mejorado -->
+        <!-- Contenedor con medidas corregidas -->
         <div class="image-container">
             <img src="andresbello.jpg" alt="Andrés Bello">
         </div>
