@@ -213,6 +213,7 @@
 
         function iniciarMusicaDeFondo() {
             if (audio.paused) {
+			    audio.currentTime = 1.25; 
                 audio.play().then(() => {
                     window.removeEventListener('click', iniciarMusicaDeFondo);
                     window.removeEventListener('touchstart', iniciarMusicaDeFondo);
