@@ -125,20 +125,20 @@
             color: #2c3e50;
             text-align: justify;
         }
-		
-		#netlify-badge, .netlify-badge, [class*="netlify"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
+
+        #netlify-badge, .netlify-badge, [class*="netlify"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <!-- Recuerda guardar tu canción como "himno.mp3" en la misma carpeta -->
-    <audio id="bg-audio" src="himno.mp3" loop></audio>
+    <!-- CORREGIDO: Se quitó el atributo 'loop' para que suene una sola vez -->
+    <audio id="bg-audio" src="bolivar.mp3"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
@@ -158,7 +158,7 @@
             <div class="info-section">
                 
                 <div class="info-item">
-                    <h3>🗡️ El Libertador de Naciones</h3>
+                    <h3>🗡 El Libertador de Naciones</h3>
                     <p>Nacido en Caracas en 1783, Simón Bolívar es una de las figuras políticas y militares más brillantes de la historia universal. Fue el líder fundamental de las gestas independentistas que rompieron las cadenas del imperio español, logrando la liberación de <strong>Venezuela, Colombia, Ecuador, Panamá, Perú y la fundación de Bolivia</strong>.</p>
                 </div>
 
@@ -173,7 +173,7 @@
                 </div>
                 
                 <div class="info-item">
-                    <h3>🏛️ Un Pensamiento Republicano Mundial</h3>
+                    <h3>🏛 Un Pensamiento Republicano Mundial</h3>
                     <p>Más allá de las batallas, Bolívar destacó por su genio escrito e ideológico. Documentos como el Manifiesto de Cartagena y la Carta de Jamaica delinearon los conceptos de libertad, unión latinoamericana y democracia republicana. Su impacto es tal que hoy en día existen plazas, monumentos y estatuas en su honor en capitales de todo el mundo, desde París y Londres hasta Washington y Santiago de Chile.</p>
                 </div>
 
@@ -191,7 +191,7 @@
             const audio = document.getElementById('bg-audio');
             if (audio.paused) {
                 audio.play().then(() => {
-                    // Remueve los detectores para optimizar recursos una vez que el audio suena
+                    // Remueve los detectores para optimizar recursos una vez que el audio suena con éxito
                     window.removeEventListener('click', iniciarMusicaDeFondo);
                     window.removeEventListener('touchstart', iniciarMusicaDeFondo);
                 }).catch(error => {
