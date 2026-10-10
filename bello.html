@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrés Bello - Humanista de América</title>
+    <style>
+        /* Estilos Minimalistas y Móviles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            max-width: 420px;
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+
+        /* Enmarca el retrato completo de Andrés Bello sin recortar su rostro */
+        .image-container {
+            width: 100%;
+            height: 380px; 
+            overflow: hidden;
+            background-color: #ffffff;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .content {
+            padding: 24px;
+        }
+
+        .header-block {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 4px;
+        }
+
+        .title-sub {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+
+        .highlight-name {
+            font-weight: 600;
+            color: #c0392b; /* Acento elegante */
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 20px;
+        }
+
+        .info-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Texto perfectamente justificado */
+        .info-item p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        /* Caja de curiosidad con tonalidades azuladas institucionales suaves */
+        .curiosity {
+            background-color: #ebf5fb;
+            border-left: 4px solid #2980b9;
+            padding: 14px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 10px;
+        }
+        
+        .curiosity h3 {
+            color: #21618c;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .curiosity p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #1b4f72;
+            text-align: justify;
+        }
+
+        /* NUEVO: Contenedor estético para el billete de 20 lucas */
+        .bill-container {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background-color: #fdfefe;
+        }
+
+        .bill-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Contenedor de Imagen de Portada -->
+        <div class="image-container">
+            <img src="andresbello.png" alt="Andrés Bello">
+        </div>
+
+        <!-- Contenido de la Ficha -->
+        <div class="content">
+            <div class="header-block">
+                <h1>Andrés Bello</h1>
+                <p class="title-sub">Distinción: <span class="highlight-name">Maestro de América</span></p>
+            </div>
+
+            <!-- Secciones Informativas Detalladas -->
+            <div class="info-section">
+                
+                <div class="info-item">
+                    <h3>✍️ Un Genio Universal Nacido en Caracas</h3>
+                    <p>Nacido en Caracas en 1781, Andrés Bello fue uno de los intelectuales, humanistas y educadores más importantes de la historia de nuestra América. Maestro del propio Simón Bolívar, destacó profundamente en los campos de la filosofía, la poesía, la diplomacia y el derecho, dejando una huella imborrable que unió los destinos culturales de Venezuela y el Cono Sur.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🇨🇱 Su Legado Imborrable en Chile</h3>
+                    <p>En 1829, Bello llegó a Chile, país donde desarrolló la etapa más madura y brillante de su carrera y donde obtuvo la nacionalidad por gracia. Su impacto en la construcción de la República chilena fue monumental: fue el redactor principal del <strong>Código Civil de Chile (1855)</strong>, una obra maestra del derecho continental que sirvió de modelo para casi toda Latinoamérica, y ejerció durante décadas como senador del país.</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>🏛️ Fundador de la Universidad de Chile</h3>
+                    <p>Andrés Bello fue la mente maestra detrás de la creación de la prestigiosa <strong>Universidad de Chile</strong>, fundada en 1842. Se convirtió en su primer rector y desempeñó el cargo hasta el día de su muerte. Su célebre frase en el discurso de inauguración, <em>"Todas las verdades se tocan"</em>, marcó el espíritu académico, libre y pluralista de la educación superior en la nación.</p>
+                </div>
+
+                <div class="curiosity">
+                    <h3>💡 Una curiosidad asombrosa</h3>
+                    <p>El rostro de Andrés Bello es parte del día a día de todos los chilenos, ya que su retrato ilustra de manera solemne el <strong>billete de 20.000 pesos (popularmente conocido como el billete de "20 lucas")</strong>, que es el de mayor denominación económica en el país. Además, se le rinde tributo con calles, avenidas y una universidad privada que lleva su nombre, consolidándolo como el venezolano más influyente en la historia republicana de Chile.</p>
+                    
+                    <!-- NUEVO: Imagen del billete integrada debajo del texto de la curiosidad -->
+                    <div class="bill-container">
+                        <!-- Recuerda guardar la foto del billete como "billete20.png" (o .jpg) en tu carpeta de GitHub -->
+                        <img src="billete.jpg" alt="Billete de 20.000 pesos chilenos con el rostro de Andrés Bello">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
