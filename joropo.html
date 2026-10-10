@@ -21,6 +21,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
+            cursor: pointer; /* Feedback visual para interactuar */
         }
 
         .card {
@@ -157,9 +158,14 @@
 </head>
 <body>
 
+    <!-- ELEMENTO DE AUDIO OCULTO -->
+    <!-- Configurado sin 'loop' para reproducirse una sola vez y no resultar molesto -->
+    <audio id="bg-audio" src="joropo.mp3"></audio>
+
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
+            <span class="badge">Danza Nacional 💃</span>
             <!-- Imagen representativa del Joropo Venezolano -->
             <img src="joropo.jpg" alt="Baile de Joropo, Venezuela">
         </div>
@@ -173,9 +179,7 @@
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <!-- Reemplaza el src con la ruta de tu video corto en formato .mp4 -->
-                <!-- Puedes guardarlo en la misma carpeta como "joropo.mp4" -->
-                <video src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
+                <video id="main-video" src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
@@ -183,7 +187,8 @@
                 
                 <div class="info-item">
                     <h3>🎶 El Alma Musical de Venezuela</h3>
-                    <p>El Joropo es el ritmo de identidad nacional por excelencia. Declarado <strong>Patrimonio Cultural de la Nación</strong>, es un complejo sistema musical que combina influencias musicales españolas, africanas e indígenas. Se caracteriza por un ritmo rápido y alegre, marcado de forma impecable por un compás de 3/4 o 6/8 que invita de inmediato a moverse.</p>
+                    <!-- ACTUALIZADO: Inclusión del hito oficial de la UNESCO del año 2025 -->
+                    <p>El Joropo es el ritmo de identidad nacional por excelencia. Declarado <strong>Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO en 2025</strong>, es un complejo sistema musical que combina influencias musicales españolas, africanas e indígenas. Se caracteriza por un ritmo rápido y alegre, marcado de forma impecable por un compás de 3/4 o 6/8 que invita de inmediato a moverse.</p>
                 </div>
 
                 <div class="info-item">
@@ -203,6 +208,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Lógica JavaScript Inteligente de Sincronización Multimedia -->
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const video = document.getElementById('main-video');
+
+        function iniciarMusicaDeFondo() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    // Remueve los detectores para optimizar recursos una vez que el audio suena con éxito
+                    window.removeEventListener('click', iniciarMusicaDeFondo);
+                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
+                }).catch(error => {
+                    console.log("El navegador bloqueó el audio momentáneamente:", error);
+                });
+            }
+        }
+
+        // Si el usuario presiona el Play del video, el MP3 de fondo se detiene inmediatamente
+        video.addEventListener('play', () => {
+            if (!audio.paused) {
+                audio.pause();
+            }
+        });
+
+        // Detecta clics en computadoras y el primer toque de dedo o arrastre en pantallas táctiles móviles
+        window.addEventListener('click', iniciarMusicaDeFondo);
+        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
+    </script>
 
 </body>
 </html>
