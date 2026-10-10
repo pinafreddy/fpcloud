@@ -21,7 +21,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            cursor: pointer; /* Feedback visual para interactuar */
         }
 
         .card {
@@ -153,19 +152,40 @@
             line-height: 1.5;
             color: #6e2c00;
             text-align: justify;
+            margin-bottom: 12px; /* Espacio antes del botón */
+        }
+
+        /* Botón interactivo folclórico dentro de la curiosidad */
+        .btn-escuchar {
+            background-color: #e67e22; /* Color arpa/folklore */
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 6px rgba(230, 126, 34, 0.2);
+        }
+
+        .btn-escuchar:active {
+            transform: scale(0.97);
         }
     </style>
 </head>
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <!-- Configurado sin 'loop' para reproducirse una sola vez y no resultar molesto -->
     <audio id="bg-audio" src="joropo.mp3"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-             <!-- Imagen representativa del Joropo Venezolano -->
+            <span class="badge">Danza Nacional 💃</span>
             <img src="joropo.jpg" alt="Baile de Joropo, Venezuela">
         </div>
 
@@ -176,17 +196,11 @@
                 <p class="sub-title">Género: <span class="highlight-text">Música y Danza Tradicional</span></p>
             </div>
 
-            <!-- Video Embebido en MP4 -->
-            <div class="video-wrapper">
-                <video id="main-video" src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
-            </div>
-
             <!-- Secciones Informativas Detalladas -->
             <div class="info-section">
                 
                 <div class="info-item">
                     <h3>🎶 El Alma Musical de Venezuela</h3>
-                    <!-- ACTUALIZADO: Inclusión del hito oficial de la UNESCO del año 2025 -->
                     <p>El Joropo es el ritmo de identidad nacional por excelencia. Declarado <strong>Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO en 2025</strong>, es un complejo sistema musical que combina influencias musicales españolas, africanas e indígenas. Se caracteriza por un ritmo rápido y alegre, marcado de forma impecable por un compás de 3/4 o 6/8 que invita de inmediato a moverse.</p>
                 </div>
 
@@ -200,41 +214,60 @@
                     <p>Es un baile de parejas donde el hombre realiza el <strong>zapateo</strong> (golpeando fuertemente el suelo con los pies al ritmo de la música) mientras corteja a la mujer, quien responde de forma elegante con el <strong>escobillao</strong> (un suave deslizamiento de los pies). El traje típico tradicional consiste en un liquiliqui blanco o caqui para el hombre, y una hermosa y amplia falda florecida con blusa de hombros descubiertos para la mujer.</p>
                 </div>
 
+                <!-- Video Embebido en MP4 -->
+                <div class="video-wrapper">
+                    <video id="main-video" src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
+                </div>
+
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
                     <p>La palabra "joropo" originalmente significaba <em>"fiesta o parranda"</em> en el lenguaje campesino venezolano. El joropo no es un baile rígido de escenario; en el llano, un "joropo" es una reunión social espontánea donde cualquier persona del público puede entrar al centro de la pista a demostrar sus habilidades con el zapateo y cantar versos improvisados frente a los músicos.</p>
+                    
+                    <!-- NUEVO: Botón de reproducción física dentro del div de curiosidad -->
+                    <button class="btn-escuchar" id="btn-play-audio" onclick="toggleAudioFisico()">
+                        <span id="btn-icon">▶</span> <span id="btn-text">Escuchar</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Lógica JavaScript Inteligente de Sincronización Multimedia -->
+    <!-- Lógica JavaScript de Sincronización Multimedia -->
     <script>
         const audio = document.getElementById('bg-audio');
         const video = document.getElementById('main-video');
+        const btnIcon = document.getElementById('btn-icon');
+        const btnText = document.getElementById('btn-text');
 
-        function iniciarMusicaDeFondo() {
+        function toggleAudioFisico() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    // Remueve los detectores para optimizar recursos una vez que el audio suena con éxito
-                    window.removeEventListener('click', iniciarMusicaDeFondo);
-                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
+                    btnIcon.innerText = '⏸';
+                    btnText.innerText = 'Pausar';
                 }).catch(error => {
-                    console.log("El navegador bloqueó el audio momentáneamente:", error);
+                    console.log("Error al reproducir el audio del joropo:", error);
                 });
+            } else {
+                audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar';
             }
         }
 
-        // Si el usuario presiona el Play del video, el MP3 de fondo se detiene inmediatamente
+        // Sincronización inteligente: detiene el MP3 si se activa el video
         video.addEventListener('play', () => {
             if (!audio.paused) {
                 audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar';
             }
         });
 
-        // Detecta clics en computadoras y el primer toque de dedo o arrastre en pantallas táctiles móviles
-        window.addEventListener('click', iniciarMusicaDeFondo);
-        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
+        // Restablece el botón cuando el MP3 finaliza solo
+        audio.onended = function() {
+            btnIcon.innerText = '▶';
+            btnText.innerText = 'Escuchar';
+        };
     </script>
 
 </body>
