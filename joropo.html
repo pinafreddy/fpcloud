@@ -90,6 +90,33 @@
             color: #e67e22; /* Color de las cuerdas del arpa */
         }
 
+        /* Contenedor del Botón de Audio Superior (Estilo Turpial) */
+        .audio-wrapper {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Botón de Audio Interactivo Folclórico */
+        .audio-btn {
+            background: #f1c40f; /* Amarillo Bandera */
+            color: #111111;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.96);
+        }
+
         /* Contenedor del Video Embebido */
         .video-wrapper {
             width: 100%;
@@ -152,28 +179,6 @@
             line-height: 1.5;
             color: #6e2c00;
             text-align: justify;
-            margin-bottom: 12px; /* Espacio antes del botón */
-        }
-
-        /* Botón interactivo folclórico dentro de la curiosidad */
-        .btn-escuchar {
-            background-color: #e67e22; /* Color arpa/folklore */
-            color: #ffffff;
-            border: none;
-            padding: 8px 18px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 2px 6px rgba(230, 126, 34, 0.2);
-        }
-
-        .btn-escuchar:active {
-            transform: scale(0.97);
         }
     </style>
 </head>
@@ -196,6 +201,18 @@
                 <p class="sub-title">Género: <span class="highlight-text">Música y Danza Tradicional</span></p>
             </div>
 
+            <!-- Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
+            <div class="audio-wrapper">
+                <button class="audio-btn" id="btn-play-audio" onclick="toggleAudioFisico()">
+                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar</span>
+                </button>
+            </div>
+
+            <!-- Video Embebido en MP4 -->
+            <div class="video-wrapper">
+                <video id="main-video" src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
+            </div>
+
             <!-- Secciones Informativas Detalladas -->
             <div class="info-section">
                 
@@ -214,19 +231,9 @@
                     <p>Es un baile de parejas donde el hombre realiza el <strong>zapateo</strong> (golpeando fuertemente el suelo con los pies al ritmo de la música) mientras corteja a la mujer, quien responde de forma elegante con el <strong>escobillao</strong> (un suave deslizamiento de los pies). El traje típico tradicional consiste en un liquiliqui blanco o caqui para el hombre, y una hermosa y amplia falda florecida con blusa de hombros descubiertos para la mujer.</p>
                 </div>
 
-                <!-- Video Embebido en MP4 -->
-                <div class="video-wrapper">
-                    <video id="main-video" src="joropo.mp4" controls poster="joropo.mp4" playsinline></video>
-                </div>
-
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
-                    <p>La palabra "joropo" originalmente significaba <em>"fiesta o parranda"</em> en el lenguaje campesino venezolano. El joropo no es un baile rígido de escenario; en el llano, un "joropo" es una reunión social espontánea donde cualquier persona del público puede entrar al centro de la pista a demostrar sus habilidades con el zapateo y cantar versos improvisados frente a los músicos.</p>
-                    
-                    <!-- NUEVO: Botón de reproducción física dentro del div de curiosidad -->
-                    <button class="btn-escuchar" id="btn-play-audio" onclick="toggleAudioFisico()">
-                        <span id="btn-icon">▶</span> <span id="btn-text">Escuchar</span>
-                    </button>
+                    <p>La palabra "joropo" originalmente significaba <em>"fiesta o parranda"</em> en el lenguaje campesino venezolano. El joropo no es un baile rígido de escenario; en el llano, un "joropo" es una reunión social  espontánea donde cualquier persona del público puede entrar al centro de la pista a demostrar sus habilidades con el zapateo y cantar versos improvisados frente a los músicos.</p>
                 </div>
             </div>
         </div>
