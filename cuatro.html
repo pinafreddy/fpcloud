@@ -164,6 +164,7 @@
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
+            <span class="badge">Cultura Musical 🎶</span>
             <img src="cuatro.png" alt="Música de cuerdas, el cuatro">
         </div>
 
@@ -205,34 +206,35 @@
         </div>
     </div>
 
-    <!-- Lógica JavaScript Unificada y Sincronizada -->
+    <!-- Lógica JavaScript de Alta Compatibilidad (iPhone & Android) -->
     <script>
         const audio = document.getElementById('bg-audio');
         const video = document.getElementById('main-video');
 
-        // CLAVE: Nombre unificado idéntico al de Bolívar para asegurar la ejecución estable
         function iniciarMusicaDeFondo() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    // Quitamos los escuchas solo cuando ya está sonando con éxito
+                    // Limpieza total de los escuchas para optimizar rendimiento tras sonar
                     window.removeEventListener('click', iniciarMusicaDeFondo);
                     window.removeEventListener('touchstart', iniciarMusicaDeFondo);
+                    window.removeEventListener('pointerdown', iniciarMusicaDeFondo);
                 }).catch(error => {
-                    console.log("El navegador bloqueó el audio momentáneamente:", error);
+                    console.log("Audio retenido temporalmente por el navegador:", error);
                 });
             }
         }
 
-        // Apaga el MP3 si el usuario le da play al video de forma manual
+        // Detener el MP3 de fondo si se interactúa con el video
         video.addEventListener('play', () => {
             if (!audio.paused) {
                 audio.pause();
             }
         });
 
-        // Detectores gemelos idénticos a los de bolivar.html
+        // Eventos gemelos tradicionales + 'pointerdown' (La solución clave para Chrome en Android)
         window.addEventListener('click', iniciarMusicaDeFondo);
         window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
+        window.addEventListener('pointerdown', iniciarMusicaDeFondo, { passive: true });
     </script>
 
 </body>
