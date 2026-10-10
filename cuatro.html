@@ -159,13 +159,11 @@
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <!-- MEJORA: Se eliminó el atributo 'loop' para que suene una sola vez y no sature -->
     <audio id="bg-audio" src="cuatro.mp3"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <span class="badge">Cultura Musical 🎶</span>
             <img src="cuatro.png" alt="Música de cuerdas, el cuatro">
         </div>
 
@@ -178,7 +176,6 @@
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <!-- Se le asignó el id 'main-video' para poder controlarlo con JS -->
                 <video id="main-video" src="cuatro.mp4" controls poster="cuatro.mp4" playsinline></video>
             </div>
 
@@ -208,7 +205,7 @@
         </div>
     </div>
 
-    <!-- Lógica JavaScript Inteligente de Sincronización de Audio -->
+    <!-- Lógica JavaScript Inteligente de Sincronización de Audio Corregida -->
     <script>
         const audio = document.getElementById('bg-audio');
         const video = document.getElementById('main-video');
@@ -216,23 +213,23 @@
         function iniciarMusicaDeFondo() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    // Remueve los detectores iniciales tras reproducirse exitosamente
+                    // Remueve los detectores para optimizar recursos una vez que el audio suena
                     window.removeEventListener('click', iniciarMusicaDeFondo);
                     window.removeEventListener('touchstart', iniciarMusicaDeFondo);
                 }).catch(error => {
-                    console.log("Audio bloqueado temporalmente por el navegador:", error);
+                    console.log("El navegador bloqueó el audio momentáneamente:", error);
                 });
             }
         }
 
-        // MEJORA: Cuando el usuario le dé play al video, el mp3 se detiene de inmediato
+        // Apaga el MP3 de fondo si el usuario le da Play al video
         video.addEventListener('play', () => {
             if (!audio.paused) {
                 audio.pause();
             }
         });
 
-        // Detectores iniciales para computadoras y móviles táctiles
+        // Detecta clics en PC y el primer toque de dedo o arrastre en celulares
         window.addEventListener('click', iniciarMusicaDeFondo);
         window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
     </script>
