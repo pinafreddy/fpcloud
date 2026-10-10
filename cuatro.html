@@ -21,7 +21,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            cursor: pointer;
         }
 
         .card {
@@ -153,6 +152,28 @@
             line-height: 1.5;
             color: #402b1a;
             text-align: justify;
+            margin-bottom: 12px; /* Espacio antes del botón */
+        }
+
+        /* Botón interactivo minimalista dentro de la curiosidad */
+        .btn-escuchar {
+            background-color: #875a36;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 6px rgba(135, 90, 54, 0.2);
+        }
+
+        .btn-escuchar:active {
+            transform: scale(0.97);
         }
     </style>
 </head>
@@ -164,7 +185,6 @@
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <span class="badge">Cultura Musical 🎶</span>
             <img src="cuatro.png" alt="Música de cuerdas, el cuatro">
         </div>
 
@@ -177,7 +197,7 @@
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <video id="main-video" src="cuatro.mp4" controls poster="cuatro.mp4" playsinline></video>
+                <video id="main-video" src="cuatro.mp4" controls poster="cuatro.png" playsinline></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
@@ -201,40 +221,52 @@
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
                     <p>Para afinar el cuatro venezolano se usa una mnemotecnia muy popular en todo el país que dice: <strong>"Cambur pintón"</strong>. Cada sílaba de la frase corresponde exactamente a la nota musical de una de las cuatro cuerdas (La, Re, Fa#, Si). A diferencia de la guitarra tradicional, la última cuerda del cuatro (Si) suena más aguda que la del medio, lo que le otorga ese sonido agudo, alegre y "brillante" tan característico del trópico.</p>
+                    
+                    <!-- Botón de reproducción física dentro del div de curiosidad -->
+                    <button class="btn-escuchar" id="btn-play-audio" onclick="toggleAudioFisico()">
+                        <span id="btn-icon">▶</span> <span id="btn-text">Escuchar</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Lógica JavaScript de Alta Compatibilidad (iPhone & Android) -->
+    <!-- Lógica JavaScript por Botón Físico Completa -->
     <script>
         const audio = document.getElementById('bg-audio');
         const video = document.getElementById('main-video');
+        const btnIcon = document.getElementById('btn-icon');
+        const btnText = document.getElementById('btn-text');
 
-        function iniciarMusicaDeFondo() {
+        function toggleAudioFisico() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    // Limpieza total de los escuchas para optimizar rendimiento tras sonar
-                    window.removeEventListener('click', iniciarMusicaDeFondo);
-                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
-                    window.removeEventListener('pointerdown', iniciarMusicaDeFondo);
+                    btnIcon.innerText = '⏸';
+                    btnText.innerText = 'Pausar';
                 }).catch(error => {
-                    console.log("Audio retenido temporalmente por el navegador:", error);
+                    console.log("Error al reproducir el audio:", error);
                 });
+            } else {
+                audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar';
             }
         }
 
-        // Detener el MP3 de fondo si se interactúa con el video
+        // Si se reproduce el video, se detiene el MP3 de fondo
         video.addEventListener('play', () => {
             if (!audio.paused) {
                 audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar';
             }
         });
 
-        // Eventos gemelos tradicionales + 'pointerdown' (La solución clave para Chrome en Android)
-        window.addEventListener('click', iniciarMusicaDeFondo);
-        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
-        window.addEventListener('pointerdown', iniciarMusicaDeFondo, { passive: true });
+        // Restablece el botón cuando el MP3 finaliza de forma natural
+        audio.onended = function() {
+            btnIcon.innerText = '▶';
+            btnText.innerText = 'Escuchar';
+        };
     </script>
 
 </body>
