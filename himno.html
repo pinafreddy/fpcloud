@@ -34,21 +34,23 @@
             padding-bottom: 30px;
         }
 
-        /* Enmarca la partitura o símbolo patrio completo sin recortarlo */
+        /* AJUSTADO: Bajamos la altura a 210px para que coincida con el formato panorámico de la foto */
         .image-container {
             width: 100%;
-            height: 280px; 
+            height: 210px; 
             overflow: hidden;
-            background-color: #1b3a4b; /* Azul Marino de gala */
+            background-color: #1b3a4b; 
             position: relative;
-            padding: 15px 0;
         }
 
+        /* CAMBIADO: 'cover' expande la imagen horizontalmente para rellenar los costados por completo */
         .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center center; /* Centra el contenido del pergamino */
         }
+
 
         .content {
             padding: 24px;
