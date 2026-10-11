@@ -21,7 +21,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            cursor: pointer;
         }
 
         .card {
@@ -51,14 +50,13 @@
             object-position: center center; /* Centra el contenido del pergamino */
         }
 
-
         .content {
             padding: 24px;
         }
 
         .header-block {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -77,6 +75,33 @@
         .highlight-name {
             font-weight: 600;
             color: #d4af37; /* Dorado Histórico */
+        }
+
+        /* Contenedor del Botón de Audio Superior (Estilo Turpial) */
+        .audio-wrapper {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Botón de Audio Interactivo Institucional */
+        .audio-btn {
+            background: #f1c40f; /* Amarillo Bandera */
+            color: #111111;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.96);
         }
 
         .info-section {
@@ -127,18 +152,23 @@
             color: #2c3e50;
             text-align: justify;
         }
+
+        #netlify-badge, .netlify-badge, [class*="netlify"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <!-- Mismo funcionamiento de Bolívar, pero configurado SIN 'loop' para sonar una sola vez -->
     <audio id="bg-audio" src="himno.mp3"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <!-- Recuerda guardar tu imagen como "himno_portada.png" (Escudo, bandera o partitura) -->
             <img src="himnonac.jpg" alt="Himno Nacional de Venezuela">
         </div>
 
@@ -148,51 +178,70 @@
                 <p class="title-sub">Identidad: <span class="highlight-name">Himno Nacional de Venezuela</span></p>
             </div>
 
+            <!-- NUEVO: Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
+            <div class="audio-wrapper">
+                <button class="audio-btn" id="btn-play-audio" onclick="toggleAudioFisico()">
+                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Himno</span>
+                </button>
+            </div>
+
             <!-- Secciones Informativas Detalladas -->
             <div class="info-section">
                 
                 <div class="info-item">
                     <h3>🎼 Origen e Historia Patrística</h3>
-                    <p>El «Gloria al Bravo Pueblo» es un canto patriótico surgido con fuerza durante los primeros movimientos revolucionarios contra el imperio español en **1810**. Fue decretado oficialmente como el Himno Nacional de Venezuela el **25 de mayo de 1881** por el presidente Antonio Guzmán Blanco. Su letra fue escrita por el médico y periodista <strong>Vicente Salias</strong>, mientras que la música fue compuesta por el talentoso maestro <strong>Juan José Landaeta</strong>.</p>
+                    <p>El «Gloria al Bravo Pueblo» es un canto patriótico surgido con fuerza durante los primeros movimientos revolucionarios contra el imperio español en <strong>1810</strong>. Fue decretado oficialmente como el Himno Nacional de Venezuela el <strong>25 de mayo de 1881</strong> por el presidente Antonio Guzmán Blanco. Su letra fue escrita por el médico y periodista <strong>Vicente Salias</strong>, mientras que la música fue compuesta por el talentoso maestro <strong>Juan José Landaeta</strong>.</p>
                 </div>
 
                 <div class="info-item">
                     <h3>🌟 Significado de sus Estrofas</h3>
-                    <p>Más que una marcha militar, el himno es un poema a la libertad continental. La frase principal *«Gloria al bravo pueblo que el yugo lanzó»* celebra la valentía del pueblo caraqueño al romper las cadenas de la opresión. Sus versos hacen un llamado directo a la unión iberoamericana y rinden homenaje a la ley, la justicia y la virtud como los pilares fundamentales para sostener una república independiente.</p>
+                    <p>Más que una marcha militar, el himno es un poema a la libertad continental. La frase principal <em>«Gloria al bravo pueblo que el yugo lanzó»</em> celebra la valentía del pueblo caraqueño al romper las cadenas de la opresión. Sus versos hacen un llamado directo a la unión iberoamericana y rinden homenaje a la ley, la justicia y la virtud como los pilares fundamentales para sostener una república independiente.</p>
                 </div>
 
                 <div class="info-item">
-                    <h3>🏛️ Un Símbolo de Arraigo Emocional</h3>
-                    <p>Para los extranjeros, el himno venezolano destaca por su hermosa complejidad coral y melódica. Es una de las piezas musicales más solemnes y conmovedoras del folklore latinoamericano. Tradicionalmente, en todo el territorio venezolano, las estaciones de radio y los canales de televisión abierta están obligados por ley a reproducirlo con total respeto a las **6:00 a.m. y a las 12:00 de la medianoche** todos los días.</p>
+                    <h3>🏛 Un Símbolo de Arraigo Emocional</h3>
+                    <p>Para los extranjeros, el himno venezolano destaca por su hermosa complejidad coral y melódica. Es una de las piezas musicales más solemnes y conmovedoras del folklore latinoamericano. Tradicionalmente, en todo el territorio venezolano, las estaciones de radio y los canales de televisión abierta están obligados por ley a reproducirlo con total respeto a las <strong>6:00 a.m. y a las 12:00 de la medianoche</strong> todos los días.</p>
                 </div>
 
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
-                    <p>Antes de ser el himno oficial de la república, esta canción era conocida popularmente en las calles de la colonia como *«La Marsellesa Venezolana»*. Era un canto tan enérgico e inspirador que los soldados realistas españoles le tenían un profundo temor, llegando a arrestar y castigar severamente a cualquier ciudadano que fuese sorprendido tarareando o silbando su contagiosa melodía rítmica.</p>
+                    <p>Antes de ser el himno oficial de la república, esta canción era conocida popularmente en las calles de la colonia como <em>«La Marsellesa Venezolana»</em>. Era un canto tan enérgico e inspirador que los soldados realistas españoles le tenían un profundo temor, llegando a arrestar y castigar severamente a cualquier ciudadano que fuese sorprendido tarareando o silbando su contagiosa melodía rítmica.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Lógica JavaScript Optimizada para Computadoras y Teléfonos Táctiles -->
+    <!-- Lógica JavaScript del Botón Físico Interactivo -->
     <script>
-        function iniciarMusicaDeFondo() {
-            const audio = document.getElementById('bg-audio');
+        const audio = document.getElementById('bg-audio');
+        const btnIcon = document.getElementById('btn-icon');
+        const btnText = document.getElementById('btn-text');
+
+        function toggleAudioFisico() {
             if (audio.paused) {
-			    audio.currentTime = 1.25; 
+                // CLAVE: Aplica tu ajuste de tiempo exacto antes de reproducir
+                if (audio.currentTime === 0) {
+                    audio.currentTime = 1.25;
+                }
                 audio.play().then(() => {
-                    // Remueve los detectores para optimizar recursos una vez que el audio suena con éxito
-                    window.removeEventListener('click', iniciarMusicaDeFondo);
-                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
+                    btnIcon.innerText = '⏸';
+                    btnText.innerText = 'Pausar';
                 }).catch(error => {
-                    console.log("El navegador bloqueó el audio momentáneamente:", error);
+                    console.log("El navegador bloqueó el audio:", error);
                 });
+            } else {
+                audio.pause();
+                btnIcon.innerText = '▶';
+                btnText.innerText = 'Escuchar Himno';
             }
         }
 
-        // Detecta el clic clásico en PC y el toque inicial/desplazamiento en pantallas móviles
-        window.addEventListener('click', iniciarMusicaDeFondo);
-        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
+        // Restablece el aspecto del botón de forma automática cuando el MP3 finalice solo
+        audio.onended = function() {
+            btnIcon.innerText = '▶';
+            btnText.innerText = 'Escuchar Himno';
+            audio.currentTime = 0; // Resetea la aguja al inicio para la próxima reproducción
+        };
     </script>
 
 </body>
