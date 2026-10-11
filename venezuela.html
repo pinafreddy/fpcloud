@@ -21,7 +21,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            cursor: pointer;
         }
 
         .card {
@@ -133,6 +132,33 @@
             text-align: justify;
         }
 
+        /* Contenedor del Botón de Audio Integrado */
+        .audio-wrapper {
+            text-align: center;
+            margin: 15px 0 5px 0;
+        }
+
+        /* Botón de Audio Interactivo Estilizado */
+        .audio-btn {
+            background: #2980b9; /* Azul Tricolor */
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+        }
+
+        .audio-btn:active {
+            transform: scale(0.96);
+        }
+
         /* Caja de curiosidad con tonalidades cálidas suaves */
         .curiosity {
             background-color: #fffde7;
@@ -154,17 +180,25 @@
             color: #4a3e00;
             text-align: justify;
         }
+
+        #netlify-badge, .netlify-badge, [class*="netlify"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
     </style>
 </head>
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <audio id="bg-audio" src="venezuela.mp3"></audio>
+    <audio id="bg-audio" src="venezuela.mp3" onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Alma luchadora';"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <img src="venezuela.png" alt="Paisajes de Venezuela">
+            <span class="badge">Bienvenidos 🇻🇪</span>
+            <img src="venezuela_portada.png" alt="Paisajes de Venezuela">
         </div>
 
         <!-- Contenido de la Ficha -->
@@ -176,7 +210,7 @@
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <video id="main-video" src="venezuela.mp4" controls poster="venezuela.mp4" playsinline></video>
+                <video id="main-video" src="venezuela.mp4" controls poster="venezuela_portada.png" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Alma luchadora';}"></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
@@ -188,16 +222,22 @@
                 </div>
 
                 <div class="info-item">
-                    <h3>🌦️ El Mosaico de los Climas</h3>
+                    <h3>🌦 El Mosaico de los Climas</h3>
                     <p>Una de las mayores riquezas del territorio es su impresionante diversidad climática. En pocas horas puedes viajar desde el calor árido y desértico de los Médanos de Coro hasta el frío gélido y reconfortante del páramo andino. Este crisol climático permite que la flora y la fauna florezcan en infinitas formas, convirtiendo al país en uno de los paraísos con mayor megadiversidad ecológica del planeta.</p>
                 </div>
-                
+
                 <div class="info-item">
                     <h3>😊 Hospitalidad y Alma Luchadora</h3>
-                    <!-- ACTUALIZADO: Se añadió el valor de la recepción de inmigrantes de Chile, Portugal, Italia, etc. -->
-                    <p>El verdadero tesoro de Venezuela está en la calidez incondicional de su gente. Históricamente, ha sido una **tierra noble y de puertas abiertas** que brindó refugio, hogar y prosperidad a millones de inmigrantes **portugueses, italianos, españoles, chilenos y colombianos** que buscaban un futuro mejor. Esa valiosa mezcla cultural forjó un pueblo alegre, optimista y profundamente trabajador que siempre recibe al visitante con una sonrisa abierta, solidaridad sincera y una arepa dispuesta a compartirse.</p>
+                    <p>El verdadero tesoro de Venezuela está en la calidez incondicional de su gente. Históricamente, ha sido una <strong>tierra noble y de puertas abiertas</strong> que brindó refugio, hogar y prosperidad a millones de inmigrantes <strong>portugueses, italianos, españoles, chilenos y colombianos</strong> que buscaban un futuro mejor. Esa valiosa mezcla cultural forjó un pueblo alegre, optimista y profundamente trabajador que siempre recibe al visitante con una sonrisa abierta, solidaridad sincera y una arepa dispuesta a compartirse.</p>
+                    
+                    <!-- Botón físico insertado exactamente debajo de este bloque y antes de la curiosidad -->
+                    <div class="audio-wrapper">
+                        <button class="audio-btn" id="btn-play-audio" onclick="var a=document.getElementById('bg-audio'); var i=document.getElementById('btn-icon'); var t=document.getElementById('btn-text'); if(a.paused){a.play(); i.innerText='⏸'; t.innerText='Pausar';}else{a.pause(); i.innerText='▶'; t.innerText='Escuchar Alma luchadora';}">
+                            <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Alma luchadora</span>
+                        </button>
+                    </div>
                 </div>
-
+                
                 <div class="curiosity">
                     <h3>💡 Una invitación con los brazos abiertos</h3>
                     <p>Venezuela es una experiencia que transforma. Es música, es sabor criollo, es historia libertadora y, sobre todo, es calidez humana. Te invitamos a recorrer sus páginas, a escuchar el canto de sus aves, a disfrutar de sus tradiciones y a dejarte cautivar por la magia de una tierra extraordinaria que siempre te esperará con los brazos abiertos.</p>
@@ -205,33 +245,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Lógica JavaScript Inteligente de Sincronización Multimedia -->
-    <script>
-        const audio = document.getElementById('bg-audio');
-        const video = document.getElementById('main-video');
-
-        function iniciarMusicaDeFondo() {
-            if (audio.paused) {
-			    audio.currentTime = 5; 
-                audio.play().then(() => {
-                    window.removeEventListener('click', iniciarMusicaDeFondo);
-                    window.removeEventListener('touchstart', iniciarMusicaDeFondo);
-                }).catch(error => {
-                    console.log("El navegador bloqueó el audio momentáneamente:", error);
-                });
-            }
-        }
-
-        video.addEventListener('play', () => {
-            if (!audio.paused) {
-                audio.pause();
-            }
-        });
-
-        window.addEventListener('click', iniciarMusicaDeFondo);
-        window.addEventListener('touchstart', iniciarMusicaDeFondo, { passive: true });
-    </script>
 
 </body>
 </html>
