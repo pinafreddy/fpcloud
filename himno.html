@@ -185,7 +185,7 @@
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO CON DETENCIÓN AUTOMÁTICA AL SEGUNDO 15 -->
-    <audio id="bg-audio" src="tambores.mp3" 
+    <audio id="bg-audio" src="tambor.mp3" 
         ontimeupdate="if(this.currentTime >= 15){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
         onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
     </audio>
@@ -194,7 +194,7 @@
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
             <span class="badge">Ritmo y Fuego 🔥</span>
-            <img src="tambores.jpg" alt="Tambores Venezolanos">
+            <img src="tambores.png" alt="Tambores Venezolanos">
         </div>
 
         <!-- Contenido de la Ficha -->
@@ -213,7 +213,7 @@
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <video id="main-video" src="tambores.mp4" controls poster="tambores.jpg" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';}"></video>
+                <video id="main-video" src="tambores.mp4" controls poster="tambores.mp4" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';}"></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
