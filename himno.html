@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himno Nacional de Venezuela - Gloria al Bravo Pueblo</title>
+    <title>Tambores Venezolanos - Herencia y Tradición</title>
     <style>
         /* Estilos Minimalistas y Móviles (ESTÁNDAR DEL PROYECTO) */
         * {
@@ -33,21 +33,34 @@
             padding-bottom: 30px;
         }
 
-        /* AJUSTADO: Bajamos la altura a 210px para que coincida con el formato panorámico de la foto */
         .image-container {
             width: 100%;
-            height: 210px; 
+            height: 260px;
             overflow: hidden;
-            background-color: #1b3a4b; 
+            background-color: #e9ecef;
             position: relative;
         }
 
-        /* CAMBIADO: 'cover' expande la imagen horizontalmente para rellenar los costados por completo */
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center; /* Centra el contenido del pergamino */
+        }
+
+        /* Etiqueta informativa adaptada al color rojo solicitado */
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #c0392b; /* Rojo Tradición */
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(192, 57, 43, 0.3);
         }
 
         .content {
@@ -60,21 +73,21 @@
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #111111;
             margin-bottom: 4px;
         }
 
-        .title-sub {
+        .sub-title {
             font-size: 0.95rem;
             color: #7f8c8d;
             margin-bottom: 6px;
         }
 
-        .highlight-name {
+        .highlight-text {
             font-weight: 600;
-            color: #d4af37; /* Dorado Histórico */
+            color: #c0392b; /* Acento rojo */
         }
 
         /* Contenedor del Botón de Audio Superior (Estilo Turpial) */
@@ -83,10 +96,10 @@
             margin-bottom: 25px;
         }
 
-        /* Botón de Audio Interactivo Institucional */
+        /* Botón de Audio Interactivo Estilizado */
         .audio-btn {
-            background: #f1c40f; /* Amarillo Bandera */
-            color: #111111;
+            background: #c0392b; /* Rojo Tradición */
+            color: #ffffff;
             border: none;
             padding: 14px 32px;
             font-size: 1rem;
@@ -97,11 +110,26 @@
             align-items: center;
             gap: 10px;
             transition: all 0.2s ease;
-            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
         }
 
         .audio-btn:active {
             transform: scale(0.96);
+        }
+
+        /* Contenedor del Video Embebido */
+        .video-wrapper {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+            margin-bottom: 25px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
         }
 
         .info-section {
@@ -123,7 +151,7 @@
             gap: 8px;
         }
 
-        /* Texto perfectamente justificado */
+        /* Mantiene el texto perfectamente justificado */
         .info-item p {
             font-size: 0.98rem;
             line-height: 1.6;
@@ -131,17 +159,17 @@
             text-align: justify;
         }
 
-        /* Caja de curiosidad con tonalidades azuladas suaves */
+        /* Caja de curiosidad con tonalidades rojizas muy suaves */
         .curiosity {
-            background-color: #f0f4f8;
-            border-left: 4px solid #1b3a4b;
+            background-color: #fdf2f2;
+            border-left: 4px solid #c0392b;
             padding: 14px;
             border-radius: 0 16px 16px 0;
             margin-top: 10px;
         }
         
         .curiosity h3 {
-            color: #1b3a4b;
+            color: #7b241c;
             font-size: 0.9rem;
             margin-bottom: 4px;
         }
@@ -149,101 +177,69 @@
         .curiosity p {
             font-size: 0.95rem;
             line-height: 1.5;
-            color: #2c3e50;
+            color: #641e16;
             text-align: justify;
-        }
-
-        #netlify-badge, .netlify-badge, [class*="netlify"] {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
         }
     </style>
 </head>
 <body>
 
     <!-- ELEMENTO DE AUDIO OCULTO -->
-    <audio id="bg-audio" src="himno.mp3"></audio>
+    <!-- Al finalizar solo, devuelve el botón a su estado original -->
+    <audio id="bg-audio" src="tambor.mp3" onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';"></audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <img src="himnonac.jpg" alt="Himno Nacional de Venezuela">
+            <!-- Recuerda guardar la foto de los tambores como "tambores.jpg" -->
+            <img src="tambores.png" alt="Tambores Venezolanos">
         </div>
 
         <!-- Contenido de la Ficha -->
         <div class="content">
             <div class="header-block">
-			     <h1>Gloria al Bravo Pueblo</h1>
-                <p class="title-sub">Identidad: <span class="highlight-name">Himno Nacional de Venezuela</span></p>
+                <h1>Tambores de Venezuela</h1>
+                <p class="sub-title">Cultura: <span class="highlight-text">Herencia Afrovenezolana</span></p>
             </div>
 
-            <!-- NUEVO: Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
+            <!-- Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
             <div class="audio-wrapper">
-                <button class="audio-btn" id="btn-play-audio" onclick="toggleAudioFisico()">
-                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Himno</span>
+                <button class="audio-btn" id="btn-play-audio" onclick="var a=document.getElementById('bg-audio'); var i=document.getElementById('btn-icon'); var t=document.getElementById('btn-text'); if(a.paused){a.play(); i.innerText='⏸'; t.innerText='Pausar';}else{a.pause(); i.innerText='▶'; t.innerText='Escuchar Tambores';}">
+                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Tambores</span>
                 </button>
+            </div>
+
+            <!-- Video Embebido en MP4 -->
+            <div class="video-wrapper">
+                <!-- Recuerda guardar el video de la festividad como "tambores.mp4" -->
+                <video id="main-video" src="tambores.mp4" controls poster="tambores.mp4" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';}"></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
             <div class="info-section">
                 
                 <div class="info-item">
-                    <h3>🎼 Origen e Historia</h3>
-                    <p>El «Gloria al Bravo Pueblo» es un canto patriótico surgido con fuerza durante los primeros movimientos revolucionarios contra el imperio español en <strong>1810</strong>. Fue decretado oficialmente como el Himno Nacional de Venezuela el <strong>25 de mayo de 1881</strong> por el presidente Antonio Guzmán Blanco. Su letra fue escrita por el médico y periodista <strong>Vicente Salias</strong>, mientras que la música fue compuesta por el talentoso maestro <strong>Juan José Landaeta</strong>.</p>
+                    <h3>🥁 Orígenes e Influencia Ancestral</h3>
+                    <p>Los tambores venezolanos representan una de las conexiones culturales más potentes con el continente africano. Introducidos por las comunidades de esclavizados durante la época colonial, estos ritmos se fusionaron de forma sincrética con las tradiciones indígenas y españolas, especialmente en las regiones costeras del país como Barlovento, el estado Vargas y las costas de Aragua y Carabobo, dando origen a una percusión única en el mundo.</p>
                 </div>
 
                 <div class="info-item">
-                    <h3>🌟 Significado de sus Estrofas</h3>
-                    <p>Más que una marcha militar, el himno es un poema a la libertad continental. La frase principal <em>«Gloria al bravo pueblo que el yugo lanzó»</em> celebra la valentía del pueblo caraqueño al romper las cadenas de la opresión. Sus versos hacen un llamado directo a la unión iberoamericana y rinden homenaje a la ley, la justicia y la virtud como los pilares fundamentales para sostener una república independiente.</p>
+                    <h3>🙏 Fiestas Principales y Devoción a los Santos</h3>
+                    <p>La percusión costera está profundamente ligada a la espiritualidad popular. El punto culminante de esta tradición ocurre cada <strong>24 de junio en la Fiesta de San Juan Bautista</strong>, donde el repique del tambor resuena día y noche bajo la consigna <em>"¡Si San Juan lo tiene, San Juan te lo da!"</em>. Asimismo, se usan con fervor en los velorios de la <strong>Cruz de Mayo</strong> y en honor a <strong>San Benito de Palermo</strong> en el occidente del país, donde la danza y el golpe del cuero rinden tributo a las promesas cumplidas.</p>
                 </div>
-
+                
                 <div class="info-item">
-                    <h3>🏛 Símbolo de Arraigo Emocional</h3>
-                    <p>Para los extranjeros, el himno venezolano destaca por su hermosa complejidad coral y melódica. Es una de las piezas musicales más solemnes y conmovedoras del folklore latinoamericano. Tradicionalmente, en todo el territorio venezolano, las estaciones de radio y los canales de televisión abierta están obligados por ley a reproducirlo con total respeto a las <strong>6:00 a.m. y a las 12:00 de la medianoche</strong> todos los días.</p>
+                    <h3>🪵 Los Instrumentos de la Costa</h3>
+                    <p>Dependiendo de la zona geográfica, los tambores varían en forma y ejecución. Los más famosos son los <strong>Tambores Cumacos</strong> (grandes troncos de madera que se tocan acostados en el suelo), los <strong>Tambores de San Millán</strong> y el complejo sistema de los <strong>Tambores de la Chimbangueles</strong>. Su polirritmia es tan rica que los percusionistas combinan golpes directos en el parche de cuero con el repique de palos de madera (<em>laures</em>) sobre los costados del tronco.</p>
                 </div>
 
                 <div class="curiosity">
                     <h3>💡 Una curiosidad asombrosa</h3>
-                    <p>Antes de ser el himno oficial de la república, esta canción era conocida popularmente en las calles de la colonia como <em>«La Marsellesa Venezolana»</em>. Era un canto tan enérgico e inspirador que los soldados realistas españoles le tenían un profundo temor, llegando a arrestar y castigar severamente a cualquier ciudadano que fuese sorprendido tarareando o silbando su contagiosa melodía rítmica.</p>
+                    <p>A diferencia de otras tradiciones rítmicas del continente, el repique del tambor venezolano no es solo musical; históricamente funcionaba como un sofisticado código secreto de comunicación a larga distancia. Durante las gestas emancipadoras, los diferentes golpes y velocidades del tambor en las costas alertaban secretamente a los pueblos cercanos sobre los movimientos de las tropas del imperio español. ¡Un ritmo con alma de libertad!</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Lógica JavaScript del Botón Físico Interactivo -->
-    <script>
-        const audio = document.getElementById('bg-audio');
-        const btnIcon = document.getElementById('btn-icon');
-        const btnText = document.getElementById('btn-text');
-
-        function toggleAudioFisico() {
-            if (audio.paused) {
-                // CLAVE: Aplica tu ajuste de tiempo exacto antes de reproducir
-                if (audio.currentTime === 0) {
-                    audio.currentTime = 1.25;
-                }
-                audio.play().then(() => {
-                    btnIcon.innerText = '⏸';
-                    btnText.innerText = 'Pausar';
-                }).catch(error => {
-                    console.log("El navegador bloqueó el audio:", error);
-                });
-            } else {
-                audio.pause();
-                btnIcon.innerText = '▶';
-                btnText.innerText = 'Escuchar Himno';
-            }
-        }
-
-        // Restablece el aspecto del botón de forma automática cuando el MP3 finalice solo
-        audio.onended = function() {
-            btnIcon.innerText = '▶';
-            btnText.innerText = 'Escuchar Himno';
-            audio.currentTime = 0; // Resetea la aguja al inicio para la próxima reproducción
-        };
-    </script>
 
 </body>
 </html>
