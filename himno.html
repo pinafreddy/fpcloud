@@ -186,14 +186,13 @@
 
     <!-- ELEMENTO DE AUDIO OCULTO CON DETENCIÓN AUTOMÁTICA AL SEGUNDO 15 -->
     <audio id="bg-audio" src="tambor.mp3" 
-        ontimeupdate="if(this.currentTime >= 15){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
+        ontimeupdate="if(this.currentTime >= 13){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
         onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
     </audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <span class="badge">Ritmo y Fuego 🔥</span>
             <img src="tambores.png" alt="Tambores Venezolanos">
         </div>
 
