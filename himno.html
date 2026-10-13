@@ -184,15 +184,17 @@
 </head>
 <body>
 
-    <!-- ELEMENTO DE AUDIO OCULTO -->
-    <!-- Al finalizar solo, devuelve el botón a su estado original -->
-    <audio id="bg-audio" src="tambor.mp3" onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';"></audio>
+    <!-- ELEMENTO DE AUDIO OCULTO CON DETENCIÓN AUTOMÁTICA AL SEGUNDO 15 -->
+    <audio id="bg-audio" src="tambores.mp3" 
+        ontimeupdate="if(this.currentTime >= 15){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
+        onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
+    </audio>
 
     <div class="card">
         <!-- Contenedor de Imagen de Portada -->
         <div class="image-container">
-            <!-- Recuerda guardar la foto de los tambores como "tambores.jpg" -->
-            <img src="tambores.png" alt="Tambores Venezolanos">
+            <span class="badge">Ritmo y Fuego 🔥</span>
+            <img src="tambores.jpg" alt="Tambores Venezolanos">
         </div>
 
         <!-- Contenido de la Ficha -->
@@ -202,16 +204,16 @@
                 <p class="sub-title">Cultura: <span class="highlight-text">Herencia Afrovenezolana</span></p>
             </div>
 
-            <!-- Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
-    <audio id="bg-audio" src="tambor.mp3" 
-        ontimeupdate="if(this.currentTime >= 13){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
-        onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
-    </audio>
+            <!-- CORREGIDO: Botón Reproductor Físico Superior en el lugar exacto (Estilo Turpial) -->
+            <div class="audio-wrapper">
+                <button class="audio-btn" id="btn-play-audio" onclick="var a=document.getElementById('bg-audio'); var i=document.getElementById('btn-icon'); var t=document.getElementById('btn-text'); if(a.paused){a.play(); i.innerText='⏸'; t.innerText='Pausar';}else{a.pause(); i.innerText='▶'; t.innerText='Escuchar Tambores';}">
+                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Tambores</span>
+                </button>
+            </div>
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
-                <!-- Recuerda guardar el video de la festividad como "tambores.mp4" -->
-                <video id="main-video" src="tambores.mp4" controls poster="tambores.mp4" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';}"></video>
+                <video id="main-video" src="tambores.mp4" controls poster="tambores.jpg" playsinline onplay="var a=document.getElementById('bg-audio'); if(!a.paused){a.pause(); document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';}"></video>
             </div>
 
             <!-- Secciones Informativas Detalladas -->
