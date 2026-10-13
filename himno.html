@@ -187,7 +187,7 @@
     <!-- ELEMENTO DE AUDIO OCULTO CON DETENCIÓN AUTOMÁTICA AL SEGUNDO 15 -->
     <audio id="bg-audio" src="tambor.mp3" 
         ontimeupdate="if(this.currentTime >= 13){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
-        onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
+        onplay="this.currentTime = 1;"onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
     </audio>
 
     <div class="card">
@@ -209,6 +209,8 @@
                     <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Tambores</span>
                 </button>
             </div>
+			
+			
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
