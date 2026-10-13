@@ -203,11 +203,10 @@
             </div>
 
             <!-- Botón Reproductor Físico Superior (Ubicación Estilo Turpial) -->
-            <div class="audio-wrapper">
-                <button class="audio-btn" id="btn-play-audio" onclick="var a=document.getElementById('bg-audio'); var i=document.getElementById('btn-icon'); var t=document.getElementById('btn-text'); if(a.paused){a.play(); i.innerText='⏸'; t.innerText='Pausar';}else{a.pause(); i.innerText='▶'; t.innerText='Escuchar Tambores';}">
-                    <span id="btn-icon">▶</span> <span id="btn-text">Escuchar Tambores</span>
-                </button>
-            </div>
+    <audio id="bg-audio" src="tambores.mp3" 
+        ontimeupdate="if(this.currentTime >= 15){ this.pause(); this.currentTime = 0; document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores'; }"
+        onended="document.getElementById('btn-icon').innerText='▶'; document.getElementById('btn-text').innerText='Escuchar Tambores';">
+    </audio>
 
             <!-- Video Embebido en MP4 -->
             <div class="video-wrapper">
